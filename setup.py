@@ -8,7 +8,6 @@
 
 
 import re
-from sys import argv
 
 from setuptools import find_packages, setup
 
