@@ -11,17 +11,17 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name="trakteerdonate",
-    version="1.0a2",
+    name="trakteer-dev",
+    version="0.0.1",
     author="Realzzy",
     author_email="hello@therealzzy.xyz",
     description="An easy way to listen for Trakteer donation in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
-    url="https://github.com/then77/trakteerdonate",
-    packages=find_packages('trakteerdonate'),
-    package_dir={'': 'trakteerdonate'},
+    url="https://github.com/then77/trakteer-dev",
+    packages=find_packages('trakteer-dev'),
+    package_dir={'': 'trakteer-dev'},
     install_requires=["websockets", "demjson3"],
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -33,6 +33,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     python_requires=">=3.6",
 )
