@@ -1,12 +1,3 @@
-# ############################################
-#
-#        Trakteer Donate Client Library
-#          ~~ 2023 (c) by Realzzy ~~
-#           2025 Recode by ©Lucifer
-#
-# ############################################
-
-
 import asyncio
 import json
 import os
@@ -20,9 +11,9 @@ from ._exception import (TrakteerMethodUnoverridable, TrakteerMissingStreamKey,
 from ._logging import logger
 
 
-class Client:
+class Watcher:
     """
-    Client to handle Trakteer donation events
+    Wather to handle Trakteer donation events
 
     Available methods to override:
     - on_connect(ws): Called when websocket is connected
@@ -91,11 +82,12 @@ class Client:
                 message = "Websocket returned error"
             raise TrakteerWebsocketError(f"{message}:\n{traceback.format_exc()}")
 
-    def start(self, **kwargs):
+    async def start(self, **kwargs):
         if self.block:
-            asyncio.run(self.wsconnect())
+            await self.wsconnect()
         else:
-            Thread(target=lambda: asyncio.run(self.wsconnect())).start()
+            loop = asyncio.get_event_loop()
+            await loop.run_in_executor(None, lambda: asyncio.run(self.wsconnect()))
 
     async def __connected(self):
         await self.ws.send(
