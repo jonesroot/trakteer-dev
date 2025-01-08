@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
-Name: trakteerdonate
+Name: trakteer-dev
 Version: 1.0a2
 Summary: An easy way to listen for Trakteer donation in Python
-Home-page: https://github.com/then77/trakteerdonate
+Home-page: https://github.com/jonesroot/trakteer-dev
 Author: Realzzy
 Author-email: hello@therealzzy.xyz
 License: MIT
@@ -28,13 +28,13 @@ License-File: LICENSE
 ## Installation
 To install this package, you can easily use pip!
 ```bash
-pip install trakteerdonate
+pip install trakteer-dev
 ```
 
 Or,
 
 ```bash
-pip install git+https://github.com/then77/trakteerdonate
+pip install git+https://github.com/jonesroot/trakteer-dev
 ```
 
 ## Package Usage
@@ -42,7 +42,7 @@ pip install git+https://github.com/then77/trakteerdonate
 2. On the **Widget URL**, copy the key, and the hash
 3. Create a code and import the `Client` function.
 ```python
-from trakteerdonate import Client
+from trakteer_dev import Client
 client = Client("hash", "streamKey")
 # Replace "hash" and "streamKey" with the key you copied before
 ```
@@ -64,7 +64,7 @@ The reason it should be placed on the bottom because its a blocking function.
 
 ## Example Code
 ```python
-from trakteerdonate import Client
+from trakteer_dev import Client
 
 client = Client("hash", "streamKey")
 
@@ -83,6 +83,6 @@ client.start()
 ```
 
 ## Repository License
-This repository and its code is under the MIT License. [Read more here](https://github.com/then77/trakteerdonate/blob/main/LICENSE).
+This repository and its code is under the MIT License. [Read more here](https://github.com/jonesroot/trakteer-dev/blob/main/LICENSE).
 
 
