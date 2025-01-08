@@ -1,7 +1,7 @@
 from unittest.mock import AsyncMock, patch
 
 import pytest
-from trakteer_dev import (Client, TrakteerDonationData)
+from trakteer_dev import Client, TrakteerDonationData
 
 
 @pytest.fixture
