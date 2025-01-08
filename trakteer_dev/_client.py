@@ -17,7 +17,7 @@ import websockets
 
 from ._exception import (TrakteerMethodUnoverridable, TrakteerMissingStreamKey,
                          TrakteerMissingUserHash, TrakteerWebsocketError)
-from ._logger import logger
+from ._logging import logger
 
 
 class Client:
