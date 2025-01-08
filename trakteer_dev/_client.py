@@ -2,7 +2,6 @@ import asyncio
 import json
 import os
 import traceback
-from threading import Thread
 
 import websockets
 
