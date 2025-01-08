@@ -78,4 +78,3 @@ def test_missing_userhash():
 def test_missing_streamkey():
     with pytest.raises(Exception, match="Missing stream key"):
         Client(userHash="dummyHash")
-        
