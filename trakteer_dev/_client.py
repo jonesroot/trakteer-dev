@@ -149,19 +149,15 @@ class Watcher:
 
     async def on_connect(self, ws):
         logger.info(f"Connected to Websocket: {ws}")
-        pass
 
     async def on_close(self, ws, e):
         logger.info(f"Connection {ws} close: {e}")
-        pass
 
     async def on_error(self, ws, e):
         logger.info(f"Client {ws} error: {ws}")
-        pass
 
     async def on_donation(self, data):
         logger.info(f"Client get Donate: {data}")
-        pass
 
     async def on_message(self, data):
         pass
