@@ -11,8 +11,6 @@ import re
 
 from setuptools import find_packages, setup
 
-with open("requirements.txt", encoding="utf-8") as r:
-    requires = [i.strip() for i in r]
 
 with open("trakteer_dev/__init__.py", encoding="utf-8") as f:
     version = re.findall(r"__version__ = \"(.+)\"", f.read())[0]
@@ -63,5 +61,4 @@ setup(
     },
     packages=find_packages(exclude=["compiler*", "tests*"]),
     zip_safe=False,
-    install_requires=requires,
 )
