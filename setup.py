@@ -10,19 +10,23 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+try:
+    with open("README.md", "r", encoding="utf-8") as fh:
+        long_description = fh.read()
+except FileNotFoundError:
+    long_description = "I'm From Indonesian, and I'm still learning."
+
 
 setup(
     name="trakteer-dev",
-    version="0.0.1",
-    author="Realzzy",
-    author_email="hello@therealzzy.xyz",
-    description="[Fork and try to Fixing] An easy way to listen for Trakteer donation in Python",
+    version="0.0.2",
+    author="Navy",
+    author_email="lucifer@navy.world",
+    description="[Fork and try to Fixing] An easy way to listen for Trakteer donation in Python\n\n\nSourcr: [Here](https://github.com/then77/trakteer-dev.git)",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
-    url="https://github.com/then77/trakteer-dev",
+    url="https://github.com/jonesroot/trakteer-dev",
     packages=find_packages(),
     package_dir={"trakteer_dev"},
     install_requires=["websockets", "rich"],
