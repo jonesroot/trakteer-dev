@@ -15,7 +15,7 @@ setup(
     version="0.0.1",
     author="Realzzy",
     author_email="hello@therealzzy.xyz",
-    description="An easy way to listen for Trakteer donation in Python",
+    description="[Fork and try to Fixing] An easy way to listen for Trakteer donation in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
