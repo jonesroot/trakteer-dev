@@ -57,9 +57,9 @@ setup(
         "Community": "https://t.me/DisiniNavy",
         "Source": "https://github.com/jonesroot",
     },
-    python_requires=">=3.9",
+    python_requires=">=3.9,<=3.11.11",
     package_data={
-        "team": ["py.typed"],
+        "trakteer_dev": ["py.typed"],
     },
     packages=find_packages(exclude=["compiler*", "tests*"]),
     zip_safe=False,
