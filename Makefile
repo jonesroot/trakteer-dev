@@ -11,7 +11,7 @@ venv:
 	$(RM) $(VENV)
 	python3 -m venv $(VENV)
 	$(PYTHON) -m pip install -U --no-cache-dir pip wheel
-	$(PYTHON) -m pip install --no-cache-dir setuptools
+	$(PYTHON) -m pip install --no-cache-dir setuptools==69.1.0
 	$(PYTHON) -m pip install --no-cache-dir -r requirements.txt
 	@echo "Created venv with $$($(PYTHON) --version)"
 
@@ -24,7 +24,7 @@ clean:
 
 build:
 	make clean
-	$(PYTHON) -m pip install --no-cache-dir setuptools
+	$(PYTHON) -m pip install --no-cache-dir setuptools==69.1.0
 	$(PYTHON) setup.py sdist
 	$(PYTHON) setup.py bdist_wheel
 	
