@@ -11,7 +11,6 @@ import re
 
 from setuptools import find_packages, setup
 
-
 with open("trakteer_dev/__init__.py", encoding="utf-8") as f:
     version = re.findall(r"__version__ = \"(.+)\"", f.read())[0]
 
