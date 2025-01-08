@@ -7,36 +7,69 @@
 # ############################################
 
 
+import re
+from sys import argv
+
 from setuptools import find_packages, setup
 
-try:
-    with open("README.md", "r", encoding="utf-8") as fh:
-        long_description = fh.read()
-except FileNotFoundError:
-    long_description = "I'm From Indonesian, and I'm still learning."
+from compiler.api import compiler as api_compiler
+from compiler.errors import compiler as errors_compiler
 
+with open("requirements.txt", encoding="utf-8") as r:
+    requires = [i.strip() for i in r]
+
+with open("trakteer_dev/__init__.py", encoding="utf-8") as f:
+    version = re.findall(r"__version__ = \"(.+)\"", f.read())[0]
+
+with open("README.md", encoding="utf-8") as f:
+    readme = f.read()
+
+if len(argv) > 1 and argv[1] in ["bdist_wheel", "install", "develop"]:
+    api_compiler.start()
+    errors_compiler.start()
 
 setup(
     name="trakteer-dev",
-    version="0.0.2",
-    author="Navy",
-    author_email="lucifer@navy.world",
-    description="[Fork and try to Fixing] An easy way to listen for Trakteer donation in Python\n\n\nSourcr: [Here](https://github.com/then77/trakteer-dev.git)",
-    long_description=long_description,
+    version=version,
+    description="## [FORK](https://pypi.org/project/trakteerdonate/)",
+    long_description=readme,
     long_description_content_type="text/markdown",
+    url="https://github.com/jonesroot",
+    author="Lucifer@Navy",
+    author_email="luci@team.navy",
     license="MIT",
-    url="https://github.com/jonesroot/trakteer-dev",
-    packages=find_packages(),
-    package_dir={"trakteer_dev"},
-    install_requires=["websockets", "rich"],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
+        "Natural Language :: Indonesia🇮🇩, English🇺🇸, Javanese🇮🇩",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.x",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: Implementation",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Topic :: Internet",
+        "Topic :: Communications",
+        "Topic :: Communications :: Chat",
+        "Topic :: Software Development :: Libraries",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Software Development :: Libraries :: Application Frameworks",
     ],
-    python_requires=">= 3.9",
+    keywords="trakteer api",
+    project_urls={
+        "Tracker": "https://github.com/team/team/issues",
+        "Community": "https://t.me/DisiniNavy",
+        "Source": "https://github.com/jonesroot",
+    },
+    python_requires=">=3.9",
+    package_data={
+        "team": ["py.typed"],
+    },
+    packages=find_packages(exclude=["compiler*", "tests*"]),
+    zip_safe=False,
+    install_requires=requires,
 )
