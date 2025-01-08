@@ -1,7 +1,7 @@
 Metadata-Version: 2.1
 Name: trakteer-dev
-Version: 1.0a2
-Summary: An easy way to listen for Trakteer donation in Python
+Version: 0.0.1
+Summary: [Fork and try to Fixing] An easy way to listen for Trakteer donation in Python
 Home-page: https://github.com/jonesroot/trakteer-dev
 Author: Realzzy
 Author-email: hello@therealzzy.xyz
@@ -16,13 +16,15 @@ Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
 <p align="center"><b>⚠️ NOTE: THIS PROJECT IS ONLY FOR EDUCATIONAL PURPOSE!! ⚠️<br>I WONT RESPONSIBLE FOR SOMETHING HAPPEN WHEN USING THIS PROGRAM!!</b></p>
 
-<h1 align="center">Trakteer Donate</h1>
+<h1 align="center">Trakteer-Dev</h1>
 <p align="center">An easy way to listen for Trakteer donation in Python</p>
 
 ## Installation
