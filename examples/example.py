@@ -1,4 +1,4 @@
-from trakteerdonate import Client
+from trakteer_dev import Client
 
 client = Client("hash", "streamkey")
 
