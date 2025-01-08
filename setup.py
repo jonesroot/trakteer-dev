@@ -22,7 +22,7 @@ setup(
     url="https://github.com/then77/trakteer-dev",
     packages=find_packages('trakteer-dev'),
     package_dir={'': 'trakteer-dev'},
-    install_requires=["websockets", "demjson3"],
+    install_requires=["websockets"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
@@ -34,6 +34,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
     python_requires=">=3.6",
 )
