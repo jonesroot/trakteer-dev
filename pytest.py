@@ -1,6 +1,6 @@
 from unittest.mock import AsyncMock, patch
 
-from src.trakteer_dev import Client, TrakteerDonationData
+from trakteer_dev import Client, TrakteerDonationData, TrakteerMethodUnoverridable, TrakteerMissingStreamKey, TrakteerMissingUserHash, TrakteerWebsocketError
 
 import pytest
 
