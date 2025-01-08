@@ -2,6 +2,7 @@
 # 
 #         TrakteerDonate Package Setup        
 #          ~~ 2023 (c) by Realzzy ~~
+#           2025 Recode by ©Lucifer
 # 
 # ############################################
 
