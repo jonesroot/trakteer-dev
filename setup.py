@@ -22,7 +22,7 @@ setup(
     url="https://github.com/then77/trakteer-dev",
     packages=find_packages('trakteer-dev'),
     package_dir={'': 'trakteer-dev'},
-    install_requires=["websockets"],
+    install_requires=["websockets", "rich"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
