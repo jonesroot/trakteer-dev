@@ -2,8 +2,10 @@ LICENSE
 README.md
 setup.py
 src/trakteer-dev/__init__.py
-src/trakteer-dev/client.py
-src/trakteer-dev/data_types.py
+src/trakteer-dev/_client.py
+src/trakteer-dev/_data_types.py
+src/trakteer-dev/_exception.py
+src/trakteer-dev/_logger.py
 src/trakteer-dev.egg-info/PKG-INFO
 src/trakteer-dev.egg-info/SOURCES.txt
 src/trakteer-dev.egg-info/dependency_links.txt
