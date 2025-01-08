@@ -10,8 +10,6 @@
 import re
 from sys import argv
 
-from compiler.api import compiler as api_compiler
-from compiler.errors import compiler as errors_compiler
 from setuptools import find_packages, setup
 
 with open("requirements.txt", encoding="utf-8") as r:
@@ -23,14 +21,10 @@ with open("trakteer_dev/__init__.py", encoding="utf-8") as f:
 with open("README.md", encoding="utf-8") as f:
     readme = f.read()
 
-if len(argv) > 1 and argv[1] in ["bdist_wheel", "install", "develop"]:
-    api_compiler.start()
-    errors_compiler.start()
-
 setup(
     name="trakteer-dev",
     version=version,
-    description="## [FORK](https://pypi.org/project/trakteerdonate/)",
+    description="## [FORK](https://github.com/then77/trakteerdonate.git)",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/jonesroot",
