@@ -2,11 +2,9 @@ name: PyPi package release
 
 on:
   push:
-    branches:
-      - fixing
+    branches: [ fixing ]
 
-permissions:
-  contents: write
+permissions: write-all
 
 jobs:
   build-n-publish:
@@ -40,5 +38,5 @@ jobs:
       - name: Publish distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          user: __token__
+          user: ${{ secrets.trakteer }}
           password: ${{ secrets.PYPI_API_TOKEN }}
