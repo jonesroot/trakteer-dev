@@ -1,7 +1,8 @@
-import pytest
 from unittest.mock import AsyncMock, patch
 
 from src.trakteer_dev import Client, TrakteerDonationData
+
+import pytest
 
 
 @pytest.fixture
@@ -15,7 +16,7 @@ def donation_data():
         "unit_icon": "☕",
         "price": "10.00",
         "media": "https://example.com/media.jpg",
-        "id": "12345"
+        "id": "12345",
     }
 
 
@@ -44,7 +45,7 @@ def test_trakteer_donation_data_to_dict(donation_data):
         "unit_icon": "☕",
         "price": "10.00",
         "media": "https://example.com/media.jpg",
-        "id": "12345"
+        "id": "12345",
     }
 
 

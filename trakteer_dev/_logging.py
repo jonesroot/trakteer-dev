@@ -1,15 +1,10 @@
 import logging
-import os
-import sys
-from datetime import datetime
 
-from pytz import timezone
 from rich.console import Console
 from rich.logging import RichHandler
 
 console = Console()
 _RHandler = RichHandler(console=console, rich_tracebacks=True)
-
 
 
 logging.getLogger("trakteer").setLevel(logging.DEBUG)

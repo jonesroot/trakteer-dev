@@ -1,20 +1,23 @@
 # ############################################
-# 
+#
 #        Trakteer Donate Client Library
 #          ~~ 2023 (c) by Realzzy ~~
 #           2025 Recode by ©Lucifer
-# 
+#
 # ############################################
 
 
-import os
-import json
 import asyncio
-import websockets
-from threading import Thread
+import json
+import os
 import traceback
+from threading import Thread
+
+import websockets
+
+from ._exception import (TrakteerMethodUnoverridable, TrakteerMissingStreamKey,
+                         TrakteerMissingUserHash, TrakteerWebsocketError)
 from ._logger import logger
-from ._exception import TrakteerMissingUserHash, TrakteerMissingStreamKey, TrakteerWebsocketError, TrakteerMethodUnoverridable
 
 
 class Client:
@@ -35,14 +38,20 @@ class Client:
     def __init__(self, userHash=None, streamKey=None, block=True, test=False):
         userHash = userHash or os.getenv("TRAKTEER_USERHASH")
         if not userHash:
-            raise TrakteerMissingUserHash("Missing user hash! Please provide user hash or set TRAKTEER_USERHASH environment variable.")
-        
+            raise TrakteerMissingUserHash(
+                "Missing user hash! Please provide user hash or set TRAKTEER_USERHASH environment variable."
+            )
+
         streamKey = streamKey or os.getenv("TRAKTEER_STREAMKEY")
         if not streamKey:
-            raise TrakteerMissingStreamKey("Missing stream key! Please provide stream key or set TRAKTEER_STREAMKEY environment variable.")
-        
+            raise TrakteerMissingStreamKey(
+                "Missing stream key! Please provide stream key or set TRAKTEER_STREAMKEY environment variable."
+            )
+
         if streamKey.startswith("trstream-"):
-            logger.warning("Ignoring 'trstream-' prefix in stream key. Please remove it in the future.")
+            logger.warning(
+                "Ignoring 'trstream-' prefix in stream key. Please remove it in the future."
+            )
             streamKey = streamKey[9:]
 
         self.ws = None
@@ -62,7 +71,9 @@ class Client:
 
     async def wsconnect(self):
         try:
-            async with websockets.connect("wss://socket.trakteer.id/app/2ae25d102cc6cd41100a?protocol=7&client=js&version=5.1.1&flash=false") as ws:
+            async with websockets.connect(
+                "wss://socket.trakteer.id/app/2ae25d102cc6cd41100a?protocol=7&client=js&version=5.1.1&flash=false"
+            ) as ws:
                 self.ws = ws
                 while True:
                     try:
@@ -87,22 +98,30 @@ class Client:
             Thread(target=lambda: asyncio.run(self.wsconnect())).start()
 
     async def __connected(self):
-        await self.ws.send(json.dumps({
-            "event": "pusher:subscribe",
-            "data": {
-                "auth": "",
-                "channel": f"creator-stream.{self.hash}.trstream-{self.streamKey}"
-            }
-        }))
-        
-        if self.test:
-            await self.ws.send(json.dumps({
-                "event": "pusher:subscribe",
-                "data": {
-                    "auth": "",
-                    "channel": f"creator-stream-test.{self.hash}.trstream-{self.streamKey}"
+        await self.ws.send(
+            json.dumps(
+                {
+                    "event": "pusher:subscribe",
+                    "data": {
+                        "auth": "",
+                        "channel": f"creator-stream.{self.hash}.trstream-{self.streamKey}",
+                    },
                 }
-            }))
+            )
+        )
+
+        if self.test:
+            await self.ws.send(
+                json.dumps(
+                    {
+                        "event": "pusher:subscribe",
+                        "data": {
+                            "auth": "",
+                            "channel": f"creator-stream-test.{self.hash}.trstream-{self.streamKey}",
+                        },
+                    }
+                )
+            )
 
         async def ping():
             while True:
@@ -119,7 +138,7 @@ class Client:
             else:
                 await asyncio.sleep(1)
                 await check_subs()
-        
+
         asyncio.create_task(check_subs())
 
     async def __parse_message(self, rawdata):
@@ -155,8 +174,9 @@ class Client:
     @classmethod
     def event(cls, func):
         if func.__name__ in ["__connected", "__parse_message"]:
-            raise TrakteerMethodUnoverridable(f"Method '{func.__name__}' is unoverridable!")
-        
+            raise TrakteerMethodUnoverridable(
+                f"Method '{func.__name__}' is unoverridable!"
+            )
+
         setattr(cls, func.__name__, func)
         return func
-        

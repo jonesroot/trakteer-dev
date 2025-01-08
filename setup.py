@@ -1,13 +1,15 @@
 # ############################################
-# 
-#         TrakteerDonate Package Setup        
+#
+#         TrakteerDonate Package Setup
 #          ~~ 2023 (c) by Realzzy ~~
 #           2025 Recode by ©Lucifer
-# 
+#
 # ############################################
 
-from setuptools import setup, find_packages
 from pathlib import Path
+
+from setuptools import find_packages, setup
+
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
@@ -22,7 +24,7 @@ setup(
     license="MIT",
     url="https://github.com/then77/trakteer-dev",
     packages=find_packages(),
-    package_dir={'': 'trakteer_dev'},
+    package_dir={"": "trakteer_dev"},
     install_requires=["websockets", "rich"],
     classifiers=[
         "Development Status :: 3 - Alpha",
