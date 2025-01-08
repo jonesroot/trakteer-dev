@@ -1,3 +1,4 @@
 rich
 pytz
 websockets
+pytest
