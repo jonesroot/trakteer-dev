@@ -1,18 +1,18 @@
 <p align="center"><b>⚠️ Note: This Library Seems Will Not Work For Now ⚠️<br>Since They Change The Way This Program Listen For Donation.<br>Want to help me? Sure i appreciate!</p>
 
-<h1 align="center"><img src="https://raw.githubusercontent.com/then77/trakteerdonate/main/trakteerdonate.png" alt="Trakteer Donate"></h1>
+<h1 align="center"><img src="https://raw.githubusercontent.com/jonesroot/trakteer-dev/main/trakteer-dev.png" alt="Trakteer Donate"></h1>
 <p align="center">An easy way to listen for Trakteer donation in Python</p>
 
 ## Installation
 To install this package, you can easily use pip!
 ```bash
-pip install trakteerdonate
+pip install trakteer-dev
 ```
 
 Or,
 
 ```bash
-pip install git+https://github.com/then77/trakteerdonate
+pip install git+https://github.com/jonesroot/trakteer-dev
 ```
 
 ## Package Usage
@@ -20,7 +20,7 @@ pip install git+https://github.com/then77/trakteerdonate
 2. On the **Widget URL**, copy the key, and the hash
 3. Create a code and import the `Client` function.
 ```python
-from trakteerdonate import Client
+from trakteer_dev import Client
 client = Client("hash", "streamKey")
 # Replace "hash" and "streamKey" with the key you copied before
 ```
@@ -42,7 +42,7 @@ The reason it should be placed on the bottom because its a blocking function.
 
 ## Example Code
 ```python
-from trakteerdonate import Client
+from trakteer_dev import Client
 
 client = Client("hash", "streamKey")
 
@@ -69,4 +69,4 @@ Currenly no since i dont have much time to do that. But, i found another cool pr
 Since this package use websocket to communicate, some host like [`Replit`](https://replit.com/talk/ask/Socket-not-connecting/52103) may not allow this protocol. But, you still can run on your local pc or another host that support it, or you can use alternative library i mentioned above since it doesn't use websocket thing.
 
 ## Repository License
-This repository and its code is under the MIT License. [Read more here](https://github.com/then77/trakteerdonate/blob/main/LICENSE).
+This repository and its code is under the MIT License. [Read more here](https://github.com/jonesroot/trakteer-dev/blob/main/LICENSE).
