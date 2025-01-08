@@ -21,8 +21,8 @@ setup(
     long_description_content_type="text/markdown",
     license="MIT",
     url="https://github.com/then77/trakteer-dev",
-    packages=find_packages('trakteer-dev'),
-    package_dir={'': 'trakteer-dev'},
+    packages=find_packages(),
+    package_dir={'': 'trakteer_dev'},
     install_requires=["websockets", "rich"],
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -37,5 +37,5 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
-    python_requires=">=3.6",
+    python_requires=">= 3.9",
 )
