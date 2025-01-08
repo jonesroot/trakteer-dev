@@ -114,13 +114,13 @@ class Watcher:
                 )
             )
 
-        async def ping():
+        async def ping(self):
             while True:
                 await asyncio.sleep(10)
                 await self.ws.send(json.dumps({"event": "pusher:ping", "data": {}}))
                 logger.debug("Sent ping to websocket")
 
-        async def check_subs():
+        async def check_subs(self):
             if self.subs_succed:
                 asyncio.create_task(ping())
                 if not self.has_connected:
@@ -148,15 +148,19 @@ class Watcher:
             await self.on_message(data)
 
     async def on_connect(self, ws):
+        logger.info(f"Connected to Websocket: {ws}")
         pass
 
     async def on_close(self, ws, e):
+        logger.info(f"Connection {ws} close: {e}")
         pass
 
     async def on_error(self, ws, e):
+        logger.info(f"Client {ws} error: {ws}")
         pass
 
     async def on_donation(self, data):
+        logger.info(f"Client get Donate: {data}")
         pass
 
     async def on_message(self, data):
